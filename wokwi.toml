@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/counter_interrupt_embarcatech.hex'
+elf = 'build/counter_interrupt_embarcatech.elf'
