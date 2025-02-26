@@ -28,24 +28,24 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(counter_interrupt_embarcatech C CXX ASM)
+project(projeto C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(counter_interrupt_embarcatech counter_interrupt_embarcatech.c lib/ssd1306.c)
+add_executable(projeto projeto.c lib/ssd1306.c)
 
-pico_set_program_name(counter_interrupt_embarcatech "counter_interrupt_embarcatech")
-pico_set_program_version(counter_interrupt_embarcatech "0.1")
+pico_set_program_name(projeto "projeto")
+pico_set_program_version(projeto "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(counter_interrupt_embarcatech 1)
-pico_enable_stdio_usb(counter_interrupt_embarcatech 1)
+pico_enable_stdio_uart(projeto 1)
+pico_enable_stdio_usb(projeto 1)
 
 # Add the standard library to the build
-target_link_libraries(counter_interrupt_embarcatech
+target_link_libraries(projeto
         pico_stdlib
         hardware_pio
         hardware_adc
@@ -54,17 +54,17 @@ target_link_libraries(counter_interrupt_embarcatech
         hardware_i2c)
 
 # Add the standard include files to the build
-target_include_directories(counter_interrupt_embarcatech PRIVATE
+target_include_directories(projeto PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
-target_link_libraries(counter_interrupt_embarcatech 
+target_link_libraries(projeto 
         
         )
 
 # Adiciona o arquivo PIO e gera o header
-pico_generate_pio_header(counter_interrupt_embarcatech ${CMAKE_CURRENT_LIST_DIR}/ws2812.pio)
+pico_generate_pio_header(projeto ${CMAKE_CURRENT_LIST_DIR}/ws2812.pio)
 
 # Gera os artefatos extras
-pico_add_extra_outputs(counter_interrupt_embarcatech)
+pico_add_extra_outputs(projeto)

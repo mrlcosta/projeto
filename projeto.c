@@ -212,13 +212,13 @@ void game_loop()
     while ( iniciar)
     {
         printf("inicio\n");
-        if (sequence_length > 1 && sequence_length < 3)
+        if (sequence_length > 1 && sequence_length < 20)
         {
             char buffer[30];
             sprintf(buffer, "%d pontos", (sequence_length - 1) * 10);
             update_display("voce possui ", buffer);
         }
-        else if (sequence_length >= 3)
+        else if (sequence_length >= 20)
         {
             update_display("voce venceu ", "parabens");
             sound_game_win();
